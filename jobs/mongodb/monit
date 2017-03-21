@@ -1,0 +1,5 @@
+check process mongodb
+  with pidfile /var/vcap/sys/run/mongodb/mongodb.pid
+  start program "/var/vcap/jobs/mongodb/bin/monit_debugger mongodb_ctl '/var/vcap/jobs/mongodb/bin/mongodb_ctl start'" with timeout 120 seconds
+  stop program "/var/vcap/jobs/mongodb/bin/monit_debugger mongodb_ctl '/var/vcap/jobs/mongodb/bin/mongodb_ctl stop'"
+  group vcap

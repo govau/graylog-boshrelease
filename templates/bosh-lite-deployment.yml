@@ -1,0 +1,86 @@
+---
+name: graylog
+director_uuid: 93c01d2d-a2a5-49d8-8d02-389fd223a9cf
+
+releases:
+- name: graylog
+  version: latest
+
+instance_groups:
+- name: mongodb
+  instances: 1
+  resource_pool: default
+  persistent_disk_pool: default
+  networks:
+  - name: default
+    static_ips:
+    - 10.244.0.20
+  azs: [z1]
+  jobs:
+  - name: mongodb
+    release: graylog
+- name: elasticsearch-master
+  instances: 1
+  resource_pool: default
+  persistent_disk_pool: default
+  networks:
+  - name: default
+    static_ips:
+    - 10.244.0.21
+  azs: [z1]
+  jobs:
+  - name: elasticsearch
+    release: graylog
+  properties:
+    elasticsearch:
+      node:
+        allow_data: false
+        allow_master: true
+- name: elasticsearch-data
+  instances: 1
+  resource_pool: default
+  persistent_disk_pool: default
+  networks:
+  - name: default
+    static_ips:
+    - 10.244.0.22
+    # - 10.244.0.23
+  azs: [z1]
+  jobs:
+  - name: elasticsearch
+    release: graylog
+  properties:
+    elasticsearch:
+      node:
+        allow_data: true
+        allow_master: false
+- name: graylog
+  instances: 1
+  resource_pool: default
+  persistent_disk_pool: default
+  networks:
+  - name: default
+    static_ips:
+    - 10.244.0.25
+  azs: [z1]
+  jobs:
+  - name: graylog
+    release: graylog
+properties:
+  elasticsearch:
+    cluster_name: graylog
+    # exec: null
+    exec:
+      environment:
+        ES_HEAP_SIZE: 500000K
+    master_hosts:
+    - 10.244.0.21
+  graylog:
+    elasticsearch_discovery_zen_ping_unicast_hosts: 10.244.0.21:9300
+    mongodb_uri: mongodb://10.244.0.20/graylog
+
+update:
+  canaries: 1
+  max_in_flight: 1
+  canary_watch_time: 1000-600000
+  update_watch_time: 1000-600000

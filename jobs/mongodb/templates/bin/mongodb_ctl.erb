@@ -1,0 +1,51 @@
+#!/bin/bash
+
+set -e # exit immediately if a simple command exits with a non-zero status
+set -u # report the usage of uninitialized variables
+
+# Setup env vars and folders for the webapp_ctl script
+source /var/vcap/jobs/mongodb/helpers/ctl_setup.sh 'mongodb'
+
+export MONGODB_CONFIGFILE=/var/vcap/jobs/mongodb/config/mongodb.conf
+export JAVA_HOME=/var/vcap/packages/java
+export LOG_FILE=$LOG_DIR/$JOB_NAME.log
+
+case $1 in
+
+  start)
+    pid_guard $PIDFILE $JOB_NAME
+    pid_guard $PIDFILE-init $JOB_NAME-init
+
+    # lock while we update plugins and run drain
+    echo "$$" > "$PIDFILE-init"
+
+    chown -R vcap:vcap $STORE_DIR $LOG_DIR $RUN_DIR
+
+    # mkdir -p $DATA_DIR $RUN_DIR $LOG_DIR
+    # chown -R $RUNAS:$RUNAS $DATA_DIR $RUN_DIR $LOG_DIR
+
+    # echo $$ > $PIDFILE
+
+    exec chpst -u vcap:vcap \
+    /var/vcap/packages/mongodb/bin/mongod --config $MONGODB_CONFIGFILE \
+      >>$LOG_DIR/$JOB_NAME.stdout.log \
+      2>>$LOG_DIR/$JOB_NAME.stderr.log
+    ;;
+
+  stop)
+    kill_and_wait $PIDFILE
+    # PID=$(head -1 $PIDFILE)
+    # if [ ! -z $PID ] && pid_exists $PID; then
+    #   kill $PID
+    # fi
+    # while [ -e /proc/$PID ]; do sleep 0.1; done
+    # rm -f $PIDFILE
+    ;;
+
+  *)
+  echo "Usage: mongodb_ctl {start|stop}"
+
+  ;;
+
+esac
+exit 0

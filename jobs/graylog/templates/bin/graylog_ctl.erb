@@ -1,0 +1,36 @@
+#!/bin/bash
+
+set -e # exit immediately if a simple command exits with a non-zero status
+set -u # report the usage of uninitialized variables
+
+# Setup env vars and folders for the webapp_ctl script
+source /var/vcap/jobs/graylog/helpers/ctl_setup.sh 'graylog'
+
+export GRAYLOG_CONF=/var/vcap/jobs/graylog/config/graylog.conf
+export JAVA_HOME=/var/vcap/packages/java
+export LOG_FILE=$LOG_DIR/$JOB_NAME.log
+export GRAYLOG_PID=$PIDFILE
+case $1 in
+
+  start)
+    pid_guard $PIDFILE $JOB_NAME
+    pid_guard $PIDFILE-init $JOB_NAME-init
+
+    chown -R vcap:vcap $STORE_DIR $LOG_DIR $RUN_DIR
+
+    chpst -u vcap:vcap /var/vcap/packages/graylog/bin/graylogctl start \
+         >>$LOG_DIR/$JOB_NAME.stdout.log \
+         2>>$LOG_DIR/$JOB_NAME.stderr.log
+    ;;
+
+  stop)
+    kill_and_wait $PIDFILE
+
+    ;;
+  *)
+    echo "Usage: graylog_ctl {start|stop}"
+
+    ;;
+
+esac
+exit 0

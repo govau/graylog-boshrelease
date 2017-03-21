@@ -1,0 +1,44 @@
+# mongod.conf
+
+# for documentation of all options, see:
+#   http://docs.mongodb.org/manual/reference/configuration-options/
+
+# where to write logging data.
+systemLog:
+  destination: file
+  logAppend: true
+  path: <%= p("mongodb.systemLog.path") %>
+
+# Where and how to store data.
+storage:
+  dbPath: <%= p("mongodb.storage.dbPath") %>
+  journal:
+    enabled: true
+#  engine:
+#  mmapv1:
+#  wiredTiger:
+
+# how the process runs
+processManagement:
+  fork: true  # fork and run in background
+  pidFilePath: <%= p("mongodb.processManagement.pidFilePath") %>  # location of pidfile
+
+# network interfaces
+net:
+  port: <%= p("mongodb.net.port") %>
+  bindIp: <%= p("mongodb.net.bindIp") %>  # Listen to local interface only, comment to listen on all interfaces.
+
+
+#security:
+
+#operationProfiling:
+
+#replication:
+
+#sharding:
+
+## Enterprise-Only Options
+
+#auditLog:
+
+#snmp:

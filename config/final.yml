@@ -1,0 +1,8 @@
+---
+blobstore:
+  provider: s3
+  options:
+    region: ap-southeast-2
+    endpoint: https://s3-ap-southeast-2.amazonaws.com
+    bucket_name: dta-graylog-boshrelease
+final_name: graylog

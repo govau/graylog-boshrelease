@@ -1,0 +1,7 @@
+---
+name: graylog
+
+dependencies: []
+
+files:
+  - graylog/graylog-2.2.2.tgz

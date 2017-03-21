@@ -1,0 +1,7 @@
+---
+name: elasticsearch
+
+dependencies: []
+
+files:
+  - elasticsearch/elasticsearch-2.4.4.tar.gz

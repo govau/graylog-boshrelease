@@ -1,0 +1,28 @@
+azs:
+- name: z1
+
+resource_pools:
+- name: default
+  stemcell:
+    name: bosh-warden-boshlite-ubuntu-trusty-go_agent
+    version: latest
+  network: default
+
+disk_types:
+- name: default
+  disk_size: 1024
+
+compilation:
+  workers: 5
+  az: z1
+  reuse_compilation_vms: true
+  network: default
+
+networks:
+- name: default
+  type: manual
+  subnets:
+    - azs: [z1]
+      range: 10.244.0.0/24
+      reserved: [10.244.0.1]
+      static: [10.244.0.2 - 10.244.0.99]

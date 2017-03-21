@@ -1,0 +1,30 @@
+---
+name: mongodb
+
+templates:
+  bin/mongodb_ctl.erb: bin/mongodb_ctl
+  bin/monit_debugger: bin/monit_debugger
+  config/mongodb.conf.erb: config/mongodb.conf
+  data/properties.sh.erb: data/properties.sh
+  helpers/ctl_setup.sh: helpers/ctl_setup.sh
+  helpers/ctl_utils.sh: helpers/ctl_utils.sh
+
+packages:
+- mongodb
+
+properties:
+  mongodb.systemLog.path:
+    description:
+    default: /var/vcap/sys/log/mongodb/mongodb.log
+  mongodb.storage.dbPath:
+    description:
+    default: /var/vcap/store/mongodb
+  mongodb.processManagement.pidFilePath:
+    description:
+    default: /var/vcap/sys/run/mongodb/mongodb.pid
+  mongodb.net.port:
+    description:
+    default: 27017
+  mongodb.net.bindIp:
+    description:
+    default: 0.0.0.0

@@ -1,0 +1,12 @@
+#
+set -e # exit immediately if a simple command exits with a non-zero status
+set -u # report the usage of uninitialized variables
+
+MONGODB_VERSION=3.4.2
+# Available variables
+# $BOSH_COMPILE_TARGET - where this package & spec'd source files are available
+# $BOSH_INSTALL_TARGET - where you copy/install files to be included in package
+export HOME=/var/vcap
+
+tar xzfv mongodb/mongodb-linux-x86_64-$MONGODB_VERSION.tgz
+cp -a mongodb-linux-x86_64-$MONGODB_VERSION/* $BOSH_INSTALL_TARGET
