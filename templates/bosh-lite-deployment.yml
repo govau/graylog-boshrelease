@@ -1,6 +1,6 @@
 ---
 name: graylog
-director_uuid: 93c01d2d-a2a5-49d8-8d02-389fd223a9cf
+director_uuid: #FIX ME
 
 releases:
 - name: graylog
@@ -66,6 +66,12 @@ instance_groups:
   jobs:
   - name: graylog
     release: graylog
+update:
+  canaries: 1
+  max_in_flight: 1
+  canary_watch_time: 1000-600000
+  update_watch_time: 1000-600000
+
 properties:
   elasticsearch:
     cluster_name: graylog
@@ -78,9 +84,5 @@ properties:
   graylog:
     elasticsearch_discovery_zen_ping_unicast_hosts: 10.244.0.21:9300
     mongodb_uri: mongodb://10.244.0.20/graylog
+    root_email: # FIX ME
 
-update:
-  canaries: 1
-  max_in_flight: 1
-  canary_watch_time: 1000-600000
-  update_watch_time: 1000-600000
