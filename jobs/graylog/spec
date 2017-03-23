@@ -13,15 +13,23 @@ packages:
 - java
 
 properties:
-  graylog.password_secret:
-    description: secret to secure/pepper the stored user passwords
-    default: replacethiswithyourownsecret!
-  graylog.root_password_sha2:
-    description: hash password for the root user
-    default: 8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918
+  graylog.is_master:
+    description: is a master graylog instance - runs periodic maintenance tasks.
+    default: true
   graylog.node_id_file:
     description: auto-generated node ID will be stored in this file and read after restarts
     default: /var/vcap/sys/run/node-id
+  graylog.password_secret:
+    description: secret to secure/pepper the stored user passwords
+    default: replacethiswithyourownsecret!
+  graylog.root_username:
+    description: The default root user
+    default: admin
+  graylog.root_password_sha2:
+    description: hash password for the root user
+    default: 8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918
+  graylog.root_email:
+    description: The email address of the root user
   graylog.plugin_dir:
     description: plugin directory
     default: /var/vcap/packages/graylog/plugin
