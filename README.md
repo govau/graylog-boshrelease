@@ -10,11 +10,13 @@ bosh upload release
 ```
 
 ### Deploying to *bosh-lite*.
-a sample cloud-config and deployment manifest is provided in the `templates` directory.
+A sample cloud-config and deployment manifest is provided in the `templates` directory.  
+There is a bunch of settings available to be tuned in the deployment manifest. In each of the jobs there is a spec file that contains a properties key. Any of these can be add to the `properties:` at the bottom of your deployment manifest.
 
 ```
+cp templates/bosh-lite-deployment.yml bosh-lite-deployment.yml
 bosh update cloud-config templates/bosh-lite-cloud-config.yml
-bosh deployment templates/bosh-lite-deployment.yml
+bosh deployment bosh-lite-deployment.yml
 bosh deploy
 ```
 
