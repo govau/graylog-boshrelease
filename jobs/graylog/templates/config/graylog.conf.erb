@@ -84,6 +84,9 @@ rest_listen_uri = http://0.0.0.0:9000/api/
 
 # Web interface listen URI
 web_listen_uri = http://0.0.0.0:9000/
+<% if_p("graylog.web_endpoint_uri") do |prop| %>
+web_endpoint_uri = <%= prop %>
+<% end %>
 
 # Enable CORS headers for the web interface. This is necessary for JS-clients accessing the server directly.
 # If these are disabled, modern browsers will not be able to retrieve resources from the server.

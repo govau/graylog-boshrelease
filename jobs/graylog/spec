@@ -33,6 +33,8 @@ properties:
   graylog.plugin_dir:
     description: plugin directory
     default: /var/vcap/packages/graylog/plugin
+  graylog.web_endpoint_uri:
+    description: external address of the REST API of the Graylog server
   graylog.message_journal_dir:
     description: directory which will be used to store the message journal
     default: /var/vcap/store/graylog
