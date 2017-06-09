@@ -1,0 +1,50 @@
+## Put it into the mongo subnet in az _a
+- type: replace
+  path: /instance_groups/name=mongodb/networks
+  value:
+    - name: mongodb_a
+      static_ips:
+      - 10.148.1.20
+
+## Put ES into the ES subnet in az _a
+- type: replace
+  path: /instance_groups/name=elasticsearch-master/networks
+  value:
+    - name: elasticsearch_a
+      static_ips:
+      - 10.148.2.21
+
+## Put ES into the ES subnet in az _a
+- type: replace
+  path: /instance_groups/name=elasticsearch-data/networks
+  value:
+    - name: elasticsearch_a
+      static_ips:
+      - 10.148.2.22
+
+## Put graylog into graylog subnet in az _a
+- type: replace
+  path: /instance_groups/name=graylog/networks
+  value:
+    - name: graylog_a
+      static_ips:
+      - 10.148.3.25
+
+## Spin up 1 instance, or more?
+- type: replace
+  path: /instance_groups/name=graylog/instances
+  value: 1
+
+## Specify the properties for graylog
+- type: replace
+  path: /properties/graylog
+  value:
+    elasticsearch_discovery_zen_ping_unicast_hosts: 10.148.2.21:9300
+    mongodb_uri: mongodb://10.148.1.20/graylog
+    root_email: test@email.com
+
+## Specify the ES master host IPs
+- type: replace
+  path: /properties/elasticsearch/master_hosts
+  value:
+    - 10.148.2.21
