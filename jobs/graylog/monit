@@ -1,5 +1,5 @@
 check process graylog
   with pidfile /var/vcap/sys/run/graylog/graylog.pid
-  start program "/var/vcap/jobs/graylog/bin/monit_debugger graylog_ctl '/var/vcap/jobs/graylog/bin/graylog_ctl start'" with timeout 120 seconds
-  stop program "/var/vcap/jobs/graylog/bin/monit_debugger graylog_ctl '/var/vcap/jobs/graylog/bin/graylog_ctl stop'"
+  start program "/var/vcap/jobs/graylog/bin/monit_debugger ctl '/var/vcap/jobs/graylog/bin/ctl start'" with timeout 120 seconds
+  stop program "/var/vcap/jobs/graylog/bin/monit_debugger ctl '/var/vcap/jobs/graylog/bin/ctl stop'"
   group vcap

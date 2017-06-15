@@ -1,0 +1,104 @@
+---
+name: graylog
+
+
+instance_groups:
+- name: mongodb
+  azs: [z1]
+  instances: 1
+  vm_type: default
+  stemcell: default
+  persistent_disk_type: default
+  networks: [{name: default}]
+  jobs:
+  - name: mongodb
+    release: graylog
+    provides:
+      mongodb: {as: mongodb}
+    properties:
+      mongodb:
+        net:
+          port: 27017
+- name: elasticsearch-master
+  azs: [z1]
+  instances: 1
+  vm_type: default
+  stemcell: default
+  persistent_disk_type: default
+  networks: [{name: default}]
+  jobs:
+  - name: elasticsearch
+    release: graylog
+    provides:
+      elasticsearch: {as: elasticsearch-master}
+    consumes:
+      elasticsearch: {from: elasticsearch-master}
+    properties:
+      elasticsearch:
+        cluster_name: graylog
+        node:
+          allow_data: false
+          allow_master: true
+        # exec: null
+        exec:
+          environment:
+            ES_HEAP_SIZE: 500000K
+- name: elasticsearch-data
+  azs: [z1]
+  instances: 2
+  vm_type: default
+  stemcell: default
+  persistent_disk_type: default
+  networks: [{name: default}]
+  jobs:
+  - name: elasticsearch
+    release: graylog
+    provides:
+      elasticsearch: {as: elasticsearch-data}
+    consumes:
+      elasticsearch: {from: elasticsearch-master}
+    properties:
+      elasticsearch:
+        cluster_name: graylog
+        node:
+          allow_data: false
+          allow_master: true
+        # exec: null
+        exec:
+          environment:
+            ES_HEAP_SIZE: 500000K
+- name: graylog
+  azs: [z1]
+  instances: 1
+  vm_type: default
+  stemcell: default
+  persistent_disk_type: default
+  networks: [{name: default}]
+  jobs:
+  - name: graylog
+    release: graylog
+    consumes:
+      elasticsearch: {from: elasticsearch-master}
+      mongodb: {from: mongodb}
+    properties:
+      graylog:
+        root_email: admin@example.com
+        root_username: admin
+        # default root_password = admin ; below is sha2 hash of it.
+        root_password_sha2: 8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918
+
+
+update:
+  canaries: 1
+  max_in_flight: 1
+  canary_watch_time: 1000-600000
+  update_watch_time: 1000-600000
+
+stemcells:
+- alias: default
+  os: ubuntu-trusty
+  version: 3421.latest
+
+releases:
+- name: graylog
+  version: latest

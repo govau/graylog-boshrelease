@@ -1,9 +1,13 @@
 #!/bin/bash
+<%
+  elasticsearch_master = link("elasticsearch")
+  elasticsearch_master_host = elasticsearch_master.instances.first.address
+-%>
 
 set -e
 
 curl -s \
     -X PUT \
     -d '{"transient":{"cluster.routing.allocation.enable":"all"}}' \
-    '<%= p('elasticsearch.master_hosts').first %>:9200/_cluster/settings' \
+    '<%= elasticsearch_master_host %>:9200/_cluster/settings' \
     > /dev/null

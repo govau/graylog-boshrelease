@@ -1,16 +1,23 @@
+
 ---
 name: mongodb
 
+packages:
+- mongodb
+
 templates:
-  bin/mongodb_ctl.erb: bin/mongodb_ctl
+  bin/ctl.erb: bin/ctl
   bin/monit_debugger: bin/monit_debugger
   config/mongodb.conf.erb: config/mongodb.conf
   data/properties.sh.erb: data/properties.sh
   helpers/ctl_setup.sh: helpers/ctl_setup.sh
   helpers/ctl_utils.sh: helpers/ctl_utils.sh
 
-packages:
-- mongodb
+provides:
+- name: mongodb
+  type: mongodb
+  properties:
+  - mongodb.net.port
 
 properties:
   mongodb.systemLog.path:
@@ -24,7 +31,6 @@ properties:
     default: /var/vcap/sys/run/mongodb/mongodb.pid
   mongodb.net.port:
     description:
-    default: 27017
   mongodb.net.bindIp:
     description:
     default: 0.0.0.0

@@ -12,7 +12,6 @@ password_secret = <%= p("graylog.password_secret") %>
 
 # The default root user is named 'admin'
 root_username = <%= p("graylog.root_username") %>
-admin
 
 # You MUST specify a hash password for the root user (which you only need to initially set up the
 # system and in case you lose connectivity to your authentication backend)
@@ -210,7 +209,12 @@ elasticsearch_transport_tcp_port = 9350
 elasticsearch_http_enabled = false
 
 elasticsearch_discovery_zen_ping_multicast_enabled = false
-elasticsearch_discovery_zen_ping_unicast_hosts = <%= p("graylog.elasticsearch_discovery_zen_ping_unicast_hosts") %>
+<%
+  elasticsearch_master = link("elasticsearch")
+  host = elasticsearch_master.instances.first.address
+  elasticsearch_master_hosts = "#{host}:9300"
+-%>
+elasticsearch_discovery_zen_ping_unicast_hosts = <%= elasticsearch_master_hosts %>
 
 # Change the following setting if you are running into problems with timeouts during Elasticsearch cluster discovery.
 # The setting is specified in milliseconds, the default is 5000ms (5 seconds).
@@ -351,7 +355,13 @@ lb_recognition_period_seconds = 3
 
 # MongoDB connection string
 # See http://docs.mongodb.org/manual/reference/connection-string/ for details
-mongodb_uri = <%= p("graylog.mongodb_uri") %>
+<%
+  mongodb = link("mongodb")
+  host = mongodb.instances.first.address
+  port = mongodb.p("mongodb.net.port")
+  mongodb_uri = "mongodb://#{host}:#{port}/graylog"
+-%>
+mongodb_uri = <%= mongodb_uri %>
 
 # Authenticate against the MongoDB server
 #mongodb_uri = mongodb://grayloguser:secret@localhost:27017/graylog
