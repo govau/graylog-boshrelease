@@ -1,5 +1,6 @@
 ---
 name: elasticsearch
+
 packages:
 - elasticsearch
 - java
@@ -7,7 +8,7 @@ packages:
 templates:
   bin/drain.erb: bin/drain
   bin/post-deploy.erb: bin/post-deploy
-  bin/elasticsearch_ctl: bin/elasticsearch_ctl
+  bin/ctl.erb: bin/ctl
   bin/monit_debugger: bin/monit_debugger
   config/config.yml.erb: config/elasticsearch.yml
   config/logging.yml.erb: config/logging.yml
@@ -15,9 +16,15 @@ templates:
   helpers/ctl_setup.sh: helpers/ctl_setup.sh
   helpers/ctl_utils.sh: helpers/ctl_utils.sh
 
+provides:
+- name: elasticsearch
+  type: elasticsearch
+
+consumes:
+- name: elasticsearch
+  type: elasticsearch
+
 properties:
-  elasticsearch.master_hosts:
-    description: The list of elasticsearch master node IPs
   elasticsearch.cluster_name:
     description: The name of the elastic search cluster
   elasticsearch.log_level:
