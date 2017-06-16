@@ -61,8 +61,8 @@ instance_groups:
       elasticsearch:
         cluster_name: graylog
         node:
-          allow_data: false
-          allow_master: true
+          allow_data: true
+          allow_master: false
         # exec: null
         exec:
           environment:
@@ -101,6 +101,6 @@ stemcells:
 
 releases:
 - name: graylog
-  version: 0.0.3
+  version: v0.0.3
   url: https://github.com/AusDTO/graylog-boshrelease/releases/download/v0.0.3/graylog-0.0.3.tgz
   sha1: 2afa00391b4a23340d8358f2f3ad0230d473ea66
