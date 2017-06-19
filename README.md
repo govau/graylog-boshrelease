@@ -48,7 +48,7 @@ You should be prompted with the graylog login page.  The default credentials pro
 
 
 ### Using Operator files
-BOSH2 operator files allow you to extend/replace parts of the default deployment manifest.  2 operator files are provided
+BOSH2 operator files allow you to extend/replace parts of the default deployment manifest.  4 operator files are provided
 
 #### network customisation - `manifests/operators/network.yml`
 This operator allows you to deploy to a cloud-config network that isn't `default`.  It also allows you set a static ip address for the graylog instance.
