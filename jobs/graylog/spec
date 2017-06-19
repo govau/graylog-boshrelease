@@ -29,7 +29,6 @@ properties:
     default: /var/vcap/sys/run/node-id
   graylog.password_secret:
     description: secret to secure/pepper the stored user passwords
-    default: replacethiswithyourownsecret!
   graylog.root_username:
     description: The default root user
   graylog.root_password_sha2:
