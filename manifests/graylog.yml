@@ -82,6 +82,7 @@ instance_groups:
       mongodb: {from: mongodb}
     properties:
       graylog:
+        password_secret: SecretToSecureTheStoredUserPasswords
         root_email: admin@example.com
         root_username: admin
         # default root_password = admin ; below is sha2 hash of it.
