@@ -27,6 +27,9 @@ properties:
   graylog.node_id_file:
     description: auto-generated node ID will be stored in this file and read after restarts
     default: /var/vcap/sys/run/node-id
+  graylog.listen_port:
+    description: TCP port for graylog to listen on
+    default: 9000
   graylog.password_secret:
     description: secret to secure/pepper the stored user passwords
   graylog.root_username:

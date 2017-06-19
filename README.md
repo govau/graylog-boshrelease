@@ -43,15 +43,15 @@ mongodb/e5a742e9-4f59-45bb-b957-bab36cae4aa5               running        z1  10
 Succeeded
 ```
 
-Point your browser the IP address for the graylog instance on port 9000 (above it is 10.244.0.6).
+Point your browser the IP address for the graylog instance on port 9000 (above example would be http://10.244.0.6:9000).
 You should be prompted with the graylog login page.  The default credentials provided in the `manifests/graylog.yml` are admin/admin.
 
 
 ### Using Operator files
 BOSH2 operator files allow you to extend/replace parts of the default deployment manifest.  2 operator files are provided
 
-#### graylog network customisation
-`manifests/operators/network.yml` - deploy graylog to a network that isn't `default` in your cloud-config and give your graylog instance a static ip.
+#### network customisation - `manifests/operators/network.yml`
+This operator allows you to deploy to a cloud-config network that isn't `default`.  It also allows you set a static ip address for the graylog instance.
 eg.
 ```
 bosh2 -e vbox deploy -n -d graylog manifests/graylog.yml \
@@ -60,8 +60,8 @@ bosh2 -e vbox deploy -n -d graylog manifests/graylog.yml \
 -v graylog-static-ip=10.244.0.34
 ```
 
-#### graylog root account configuration
-`manifests/operators/graylog-accounts.yml` - set custom root username/email/password (you will want to do this!!)
+#### graylog root account  - `manifests/operators/graylog-accounts.yml`
+set custom root username/email/password (you *will* want to do this!!)
 ```
 bosh2 -e vbox deploy -n -d graylog manifests/graylog.yml \
 -o manifests/operators/graylog-accounts.yml \
@@ -82,8 +82,24 @@ bosh2 -e vbox deploy -n -d graylog manifests/graylog.yml \
 -o manifests/operators/graylog-accounts.yml
 ```
 
+#### Graylog Web Endpoint URL  - `manifests/operators/web-endpoint-uri.yml`
+This operator allows you to set the `web_listen_uri` configuration value.  This is the external address of the REST API of the Graylog server. Web interface clients need to be able to connect to this for the web interface to work. see [url](http://docs.graylog.org/en/2.2/pages/configuration/web_interface.html)
 
-### Local Development
+```
+bosh2 -e vbox deploy -n -d graylog manifests/graylog.yml \
+-o manifests/operators/web-endpoint-uri.yml \
+-v graylog-web-uri="https://logging.example.com" \
+```
+
+#### Graylog listen port  - `manifests/operators/listen-port.yml`
+By default graylog listens on port `9000`.  This operator allows you to make it listen on a different port.
+```
+bosh2 -e vbox deploy -n -d graylog manifests/graylog.yml \
+-o manifests/operators/listen-port.yml \
+-v graylog-listen-port=8000 \
+```
+
+## Local Development
 You can make changes and create local dev releases.
 Create a local BOSH dev release for graylog
 ```
@@ -93,7 +109,7 @@ bosh2 -e vbox deploy -n -d graylog manifests/graylog.yml
 ```
 
 
-### attribution
+#### Attribution
 This BOSH release for Graylog was heavily inspired by an existing BOSH release for the ELK stack - https://github.com/cloudfoundry-community/logsearch-boshrelease.  
 A large amount of the code for the _elasticsearch_ jobs and packages has been copied from the ELK BOSH release and re-used here.
 
