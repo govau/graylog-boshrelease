@@ -1,0 +1,22 @@
+---
+
+- type: replace
+  path: /instance_groups/name=mongodb/networks/name=default?
+  value:
+    name: ((network-name))
+
+- type: replace
+  path: /instance_groups/name=elasticsearch-master/networks/name=default?
+  value:
+    name: ((network-name))
+
+- type: replace
+  path: /instance_groups/name=elasticsearch-data/networks/name=default?
+  value:
+    name: ((network-name))
+
+- type: replace
+  path: /instance_groups/name=graylog/networks/name=default?
+  value:
+    name: ((network-name))
+    static_ips: [((graylog-static-ip))]
