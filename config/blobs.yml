@@ -1,17 +1,20 @@
----
 elasticsearch/elasticsearch-2.4.4.tar.gz:
+  size: 27343272
   object_id: 06f85038-ba22-46f7-a7c7-058d0d6aa7c2
   sha: cdb5068d1baa07388e522c3bc04cca38aa8f3048
-  size: 27343272
-mongodb/mongodb-linux-x86_64-3.4.2.tgz:
-  object_id: a68edeb2-27a4-4532-96e1-09b00145f9c7
-  sha: 540ed237905235ac4ca40bbfa0a78324f5d1db4f
-  size: 86473759
-openjdk/openjdk-1.8.0_111.tar.gz:
-  object_id: d3e89d5f-e28e-41f8-8633-988803c304c0
-  sha: d5ca703f6115cb0564651c2ab7f962030f70d594
-  size: 77747700
 graylog/graylog-2.2.2.tgz:
+  size: 99956086
   object_id: dee996d9-8ed8-453e-85cb-27ea5362ff0c
   sha: 571289739173b9644a43e94d526912c1d0e1e4a9
-  size: 99956086
+graylog/graylog-2.2.3.tgz:
+  size: 99971278
+  object_id: 7a04199d-05d3-464d-5023-211c0cbd041d
+  sha: 0d3bdd24104c87f4e3739959c0c3d009cf090242
+mongodb/mongodb-linux-x86_64-3.4.2.tgz:
+  size: 86473759
+  object_id: a68edeb2-27a4-4532-96e1-09b00145f9c7
+  sha: 540ed237905235ac4ca40bbfa0a78324f5d1db4f
+openjdk/openjdk-1.8.0_111.tar.gz:
+  size: 77747700
+  object_id: d3e89d5f-e28e-41f8-8633-988803c304c0
+  sha: d5ca703f6115cb0564651c2ab7f962030f70d594

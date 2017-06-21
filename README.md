@@ -126,12 +126,12 @@ bosh -n -d graylog manifests/graylog.yml \
 ## Local Development
 
 You can make changes and create local dev releases.
-Create a local BOSH dev release for graylog
+These can then be deployed locally with the `latest-release.yml` operator file.
 
 ```bash
 bosh create-release --force --name graylog
 bosh upload-release
-bosh deploy -n -d graylog manifests/graylog.yml
+bosh deploy -n -d graylog manifests/graylog.yml -o manifests/operators/latest-release.yml
 ```
 
 ### Attribution
