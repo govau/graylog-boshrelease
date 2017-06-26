@@ -84,21 +84,19 @@ set custom root username/email/password (you *will* want to do this!!)
 ```bash
 bosh deploy -n -d graylog manifests/graylog.yml \
     -o manifests/operators/graylog-accounts.yml \
-    -v password_secret=reallyreallyreallyreallyreallyreallyreallyreallyreallyreallyreallybigsecret \
     -v graylog-root-email=operations@example.com \
     -v graylog-root-username=administrator \
-    -v graylog-root-password-sha2=c7a751ec361695f6ebf546d503657dc0fd86bed2bac136a7352d2b4be1b55604
+    -v graylog-root-password-sha2=60644240fe7ef9d4b17750b226a3ba88516cea9446439d275e922377f658fc4a
 ```
 
-note: generate a sha2 hash of a password by running `echo my-big-secret | shasum -a 256`
+note: generate a sha2 hash of a password by running `echo -n my-big-secret | shasum -a 256`
 
 For bonus points, you could stick sensitive variables (secrets) into credhub.  The benefit is now you don't require them when running the `bosh deploy` command.
 
 ```bash
-credhub set -n "/Bosh Lite Director/graylog/password-secret" -v "bigsecret"
 credhub set -n "/Bosh Lite Director/graylog/graylog-root-email" -v "operations@example.com"
 credhub set -n "/Bosh Lite Director/graylog/graylog-root-username" -v "administrator"
-credhub set -n "/Bosh Lite Director/graylog/graylog-root-password-sha2" -v "c7a751ec361695f6ebf546d503657dc0fd86bed2bac136a7352d2b4be1b55604"
+credhub set -n "/Bosh Lite Director/graylog/graylog-root-password-sha2" -v "60644240fe7ef9d4b17750b226a3ba88516cea9446439d275e922377f658fc4a"
 bosh deploy -n -d graylog manifests/graylog.yml \
     -o manifests/operators/graylog-accounts.yml
 ```

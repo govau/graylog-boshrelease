@@ -1,8 +1,13 @@
 ---
 
 - type: replace
-  path: /instance_groups/name=graylog/jobs/name=graylog/properties/graylog?
-  value:
-    root_email: ((graylog-root-email))
-    root_username: ((graylog-root-username))
-    root_password_sha2: ((graylog-root-password-sha2))
+  path: /instance_groups/name=graylog/jobs/name=graylog/properties/graylog/root_email?
+  value: ((graylog-root-email))
+
+- type: replace
+  path: /instance_groups/name=graylog/jobs/name=graylog/properties/graylog/root_username?
+  value: ((graylog-root-username))
+
+- type: replace
+  path: /instance_groups/name=graylog/jobs/name=graylog/properties/graylog/root_password_sha2?
+  value: ((graylog-root-password-sha2))
