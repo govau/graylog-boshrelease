@@ -134,6 +134,27 @@ bosh upload-release
 bosh deploy -n -d graylog manifests/graylog.yml -o manifests/operators/latest-release.yml
 ```
 
+## creating a final release
+todo - move to concourse job
+1.  create bosh final release (requires s3 credentials in `config/final.yml`)
+```
+export VERSION=x.y.z
+bosh create-release --final --version=$VERSION --name=graylog --tarball=releases/graylog/graylog-$VERSION.tgz
+```
+2. determine sha1 of tarball blob and update the `version`, `url` and `sha` details of the graylog release in the `manifests/graylog.yml` file
+```
+shasum releases/graylog/graylog-$VERSION.tgz
+```
+3. commit and push changes
+```
+git add releases .final_builds/ manifests/graylog.yml
+git commit -m"BOSH release $VERSION"
+git tag v$VERSION
+git push origin master
+git push --tags
+```
+4. Create a release from the new tag and upload the tarball `releases/graylog/graylog-$VERSION.tgz`
+
 ### Attribution
 
 This BOSH release for Graylog was heavily inspired by an existing BOSH release for the ELK stack - <https://github.com/cloudfoundry-community/logsearch-boshrelease>.
