@@ -121,6 +121,19 @@ bosh -n -d graylog manifests/graylog.yml \
     -v graylog-listen-port=8000
 ```
 
+#### VM types
+
+By default graylog uses the `default` vm_type for each instance.  This ops file allows you to change this.
+
+```
+bosh -n -d graylog manifests/graylog.yml \
+    -o manifests/operators/vm-types.yml \
+    -v vm-type-graylog=default \
+    -v vm-type-mongodb=default \
+    -v vm-type-elasticsearch-master=default \
+    -v vm-type-elasticsearch-data=default
+```
+
 ## Local Development
 
 You can make changes and create local dev releases.
