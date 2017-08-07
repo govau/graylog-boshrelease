@@ -116,9 +116,22 @@ bosh deploy -n -d graylog manifests/graylog.yml \
 By default graylog listens on port `9000`.  This operator allows you to make it listen on a different port.
 
 ```bash
-bosh -n -d graylog manifests/graylog.yml \
+bosh deploy -n -d graylog manifests/graylog.yml \
     -o manifests/operators/listen-port.yml \
     -v graylog-listen-port=8000
+```
+
+#### VM types
+
+By default graylog uses the `default` vm_type for each instance.  This ops file allows you to change this.
+
+```bash
+bosh deploy -n -d graylog manifests/graylog.yml \
+    -o manifests/operators/vm-types.yml \
+    -v vm-type-graylog=default \
+    -v vm-type-mongodb=default \
+    -v vm-type-elasticsearch-master=default \
+    -v vm-type-elasticsearch-data=default
 ```
 
 ## Local Development

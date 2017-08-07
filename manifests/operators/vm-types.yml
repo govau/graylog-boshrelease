@@ -1,0 +1,16 @@
+---
+- type: replace
+  path: /instance_groups/name=graylog/vm_type?
+  value: ((vm-type-graylog))
+
+- type: replace
+  path: /instance_groups/name=mongodb/vm_type?
+  value: ((vm-type-mongodb))
+
+- type: replace
+  path: /instance_groups/name=elasticsearch-master/vm_type?
+  value: ((vm-type-elasticsearch-master))
+
+- type: replace
+  path: /instance_groups/name=elasticsearch-data/vm_type?
+  value: ((vm-type-elasticsearch-data))
