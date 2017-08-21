@@ -5,3 +5,4 @@ dependencies: []
 
 files:
   - graylog/graylog-2.2.3.tgz
+  - graylog/graylog-plugin-slack-2.4.0.jar # from https://github.com/graylog-labs/graylog-plugin-slack/releases/download/2.4.0/graylog-plugin-slack-2.4.0.jar

@@ -7,3 +7,6 @@ set -u # report the usage of uninitialized variables
 
 tar xzf graylog/graylog-2.2.3.tgz
 cp -R graylog-2.2.3/* $BOSH_INSTALL_TARGET
+
+# Install slack plugin
+cp graylog/*.jar $BOSH_INSTALL_TARGET/plugin/
