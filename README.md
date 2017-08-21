@@ -2,6 +2,8 @@
 
 BOSH release for graylog (<https://www.graylog.org/>) - tool for centrally collecting logging events for your infrastructure and applications.
 
+This release includes the [Slack plugin](https://marketplace.graylog.org/addons/2b7c3403-60d8-488e-b4be-79364bde1634).
+
 ## Usage
 
 ### Setting up local environment

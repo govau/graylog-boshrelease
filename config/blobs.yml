@@ -10,6 +10,9 @@ graylog/graylog-2.2.3.tgz:
   size: 99971278
   object_id: 7a04199d-05d3-464d-5023-211c0cbd041d
   sha: 0d3bdd24104c87f4e3739959c0c3d009cf090242
+graylog/graylog-plugin-slack-2.4.0.jar:
+  size: 26462
+  sha: 10529654afe3b8a93a991ca487dbfdbd01a37e81
 mongodb/mongodb-linux-x86_64-3.4.2.tgz:
   size: 86473759
   object_id: a68edeb2-27a4-4532-96e1-09b00145f9c7
