@@ -1,0 +1,42 @@
+name: graylog
+version: 0.0.6
+commit_hash: 140c744
+uncommitted_changes: false
+jobs:
+- name: elasticsearch
+  version: f5d523cb7baa5105fb5537628f3ab2072e5853bf
+  fingerprint: f5d523cb7baa5105fb5537628f3ab2072e5853bf
+  sha1: 2f77cb4504a0693d7ceb96b09f133e6aecec7969
+- name: graylog
+  version: 0f08a1058dd8ea3b1950f536313be13de203e1d1
+  fingerprint: 0f08a1058dd8ea3b1950f536313be13de203e1d1
+  sha1: f0009232d620143678ff763843a2af0a7265094f
+- name: mongodb
+  version: 0244b7e42097e268fb2bcd44292adf54d3a99201
+  fingerprint: 0244b7e42097e268fb2bcd44292adf54d3a99201
+  sha1: af07c7c19835df851ee33906d1dbcc92b0ce53c3
+packages:
+- name: elasticsearch
+  version: f5cba19fb48cfab9e82a4ffe25097852a9313441
+  fingerprint: f5cba19fb48cfab9e82a4ffe25097852a9313441
+  sha1: 5728d389b5c530add7542a8996e9bafa1d0f89cc
+  dependencies: []
+- name: graylog
+  version: c44726752ea69eb853074e3b9b29f093c4c144cd
+  fingerprint: c44726752ea69eb853074e3b9b29f093c4c144cd
+  sha1: 254d80ffad45c87fa14e877e1993633a0b6bb566
+  dependencies: []
+- name: java
+  version: e333be1def651599c1e3c0e603c5dcdc445fd5b9
+  fingerprint: e333be1def651599c1e3c0e603c5dcdc445fd5b9
+  sha1: 78289c6337f4066a03f3d9803708a8fed1b7c396
+  dependencies: []
+- name: mongodb
+  version: f7ccfe696d37f76c547f888287954549b5fd1091
+  fingerprint: f7ccfe696d37f76c547f888287954549b5fd1091
+  sha1: 437eba55f696fc1a63bdca3637e64ea22ff42031
+  dependencies: []
+license:
+  version: 37cb05ddf3167b3a7eeb030b21b27a71622c65cd
+  fingerprint: 37cb05ddf3167b3a7eeb030b21b27a71622c65cd
+  sha1: a1df8d59f0a9a931ef48db8e75c73dd5706bd465
