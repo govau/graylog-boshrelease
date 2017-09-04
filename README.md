@@ -136,6 +136,19 @@ bosh deploy -n -d graylog manifests/graylog.yml \
     -v vm-type-elasticsearch-data=default
 ```
 
+#### Persistent disk type
+
+By default graylog uses the `default` persistent_disk_type for each instance.  This ops file allows you to change this.
+
+```bash
+bosh deploy -n -d graylog manifests/graylog.yml \
+    -o manifests/operators/persistent-disk-type.yml \
+    -v persistent-disk-type-graylog=default \
+    -v persistent-disk-type-mongodb=default \
+    -v persistent-disk-type-elasticsearch-master=default \
+    -v persistent-disk-type-elasticsearch-data=10G
+```
+
 ## Local Development
 
 You can make changes and create local dev releases.
