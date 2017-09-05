@@ -1,0 +1,16 @@
+---
+- type: replace
+  path: /instance_groups/name=graylog/persistent_disk_type?
+  value: ((persistent-disk-type-graylog))
+
+- type: replace
+  path: /instance_groups/name=mongodb/persistent_disk_type?
+  value: ((persistent-disk-type-mongodb))
+
+- type: replace
+  path: /instance_groups/name=elasticsearch-master/persistent_disk_type?
+  value: ((persistent-disk-type-elasticsearch-master))
+
+- type: replace
+  path: /instance_groups/name=elasticsearch-data/persistent_disk_type?
+  value: ((persistent-disk-type-elasticsearch-data))
