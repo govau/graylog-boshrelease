@@ -87,6 +87,9 @@ instance_groups:
         root_username: admin
         # default root_password = admin ; below is sha2 hash of it.
         root_password_sha2: 8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918
+  - name: geoipupdate
+    release: graylog
+    properties: {}
 
 variables:
 - name: password-secret

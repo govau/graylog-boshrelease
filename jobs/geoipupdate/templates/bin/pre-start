@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# run it immediately
+/var/vcap/jobs/geoipupdate/bin/geoipupdate.sh
+
+# schedule the job with cron
+cp /var/vcap/jobs/geoipupdate/bin/geoipupdate-cron /etc/cron.d

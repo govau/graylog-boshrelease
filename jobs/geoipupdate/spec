@@ -1,0 +1,13 @@
+---
+name: geoipupdate
+
+templates:
+  bin/geoipupdate.sh: bin/geoipupdate.sh
+  bin/geoipupdate-cron: bin/geoipupdate-cron
+  bin/pre-start: bin/pre-start
+  etc/GeoIP.conf: etc/GeoIP.conf
+
+packages:
+  - geoipupdate
+
+properties: {}

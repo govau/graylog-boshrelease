@@ -1,0 +1,7 @@
+---
+name: geoipupdate
+
+dependencies: []
+
+files:
+  - geoipupdate/geoipupdate-2.5.0.tar.gz # from https://github.com/maxmind/geoipupdate/releases/download/v2.5.0/geoipupdate-2.5.0.tar.gz
