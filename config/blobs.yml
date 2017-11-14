@@ -4,6 +4,7 @@ elasticsearch/elasticsearch-2.4.4.tar.gz:
   sha: cdb5068d1baa07388e522c3bc04cca38aa8f3048
 geoipupdate/geoipupdate-2.5.0.tar.gz:
   size: 371882
+  object_id: a00f4ce6-ea45-4301-7569-c92b4042ec93
   sha: 79c5c9ba0f7a89d921b640f140ce0f5dc95bc8eb
 graylog/graylog-2.2.2.tgz:
   size: 99956086
