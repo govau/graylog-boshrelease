@@ -27,7 +27,5 @@ chown vcap:vcap $LOG_DIR
     -v \
     -f $JOB_DIR/etc/GeoIP.conf \
     -d $STORE_DIR
-
-  exit 0
 } >>$LOG_DIR/$JOB_NAME.stdout.log \
   2>>$LOG_DIR/$JOB_NAME.stderr.log
