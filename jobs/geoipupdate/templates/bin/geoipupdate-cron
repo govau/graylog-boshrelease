@@ -1,0 +1,1 @@
+0 9 * * Wed root /var/vcap/jobs/geoipupdate/bin/geoipupdate.sh
