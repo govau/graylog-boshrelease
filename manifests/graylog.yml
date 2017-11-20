@@ -110,6 +110,6 @@ stemcells:
 
 releases:
 - name: graylog
-  version: 0.0.6
-  url: https://github.com/AusDTO/graylog-boshrelease/releases/download/v0.0.6/graylog-0.0.6.tgz
-  sha1: 08c3250124ac2b91c34f56c1360a28da3fef8f29
+  version: 0.0.7
+  url: https://github.com/AusDTO/graylog-boshrelease/releases/download/v0.0.7/graylog-0.0.7.tgz
+  sha1: 3f97021aa5b42c84a03e163ea50d063d94b63b9a
