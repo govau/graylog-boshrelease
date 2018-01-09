@@ -1,0 +1,51 @@
+name: graylog
+version: 0.2.0
+commit_hash: 3e18094
+uncommitted_changes: false
+jobs:
+- name: elasticsearch
+  version: f5d523cb7baa5105fb5537628f3ab2072e5853bf
+  fingerprint: f5d523cb7baa5105fb5537628f3ab2072e5853bf
+  sha1: 874ab7c8f97f73c1f836fbb176ac1348634b98da
+- name: geoipupdate
+  version: e408b557a7a8a11c927d77615c9a4325adb19baa
+  fingerprint: e408b557a7a8a11c927d77615c9a4325adb19baa
+  sha1: d5fd44142d9afd4238955026b6b0af71e1a0459d
+- name: graylog
+  version: 0f08a1058dd8ea3b1950f536313be13de203e1d1
+  fingerprint: 0f08a1058dd8ea3b1950f536313be13de203e1d1
+  sha1: aca9cd87bdc652f452bd1ef854011694024ed391
+- name: mongodb
+  version: 0244b7e42097e268fb2bcd44292adf54d3a99201
+  fingerprint: 0244b7e42097e268fb2bcd44292adf54d3a99201
+  sha1: 255689810a8c35c31788e73bf23ecc95c180b6f5
+packages:
+- name: elasticsearch
+  version: f5cba19fb48cfab9e82a4ffe25097852a9313441
+  fingerprint: f5cba19fb48cfab9e82a4ffe25097852a9313441
+  sha1: 7ee8b2bb6bb4e86843acdb16dc25fbd02fa5a2f1
+  dependencies: []
+- name: geoipupdate
+  version: c81acf6d5884f74bd414b6f4386ee39029216188
+  fingerprint: c81acf6d5884f74bd414b6f4386ee39029216188
+  sha1: 4814273cdda7d910ce2a6b2254aae416afc0f32e
+  dependencies: []
+- name: graylog
+  version: c44726752ea69eb853074e3b9b29f093c4c144cd
+  fingerprint: c44726752ea69eb853074e3b9b29f093c4c144cd
+  sha1: 16dfb7d072229b9aa34453a58ac1ec7d6463cdd0
+  dependencies: []
+- name: java
+  version: e333be1def651599c1e3c0e603c5dcdc445fd5b9
+  fingerprint: e333be1def651599c1e3c0e603c5dcdc445fd5b9
+  sha1: f2ff3b09f10070eed68b08038518b1f478b5567c
+  dependencies: []
+- name: mongodb
+  version: f7ccfe696d37f76c547f888287954549b5fd1091
+  fingerprint: f7ccfe696d37f76c547f888287954549b5fd1091
+  sha1: a17b903ea2b8fe52eea66dc0320f74b66792a53c
+  dependencies: []
+license:
+  version: 37cb05ddf3167b3a7eeb030b21b27a71622c65cd
+  fingerprint: 37cb05ddf3167b3a7eeb030b21b27a71622c65cd
+  sha1: 1772661216c9ca3762cc012881a25d1e75c09ded
