@@ -4,5 +4,5 @@ blobstore:
   options:
     region: ap-southeast-2
     endpoint: https://s3-ap-southeast-2.amazonaws.com
-    bucket_name: dta-graylog-boshrelease
+    bucket_name: dta-graylog2-boshrelease
 final_name: graylog

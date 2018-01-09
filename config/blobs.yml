@@ -1,28 +1,28 @@
 elasticsearch/elasticsearch-2.4.4.tar.gz:
   size: 27343272
-  object_id: 06f85038-ba22-46f7-a7c7-058d0d6aa7c2
+  object_id: 01680ceb-1250-4669-78d9-ea46d0eafd84
   sha: cdb5068d1baa07388e522c3bc04cca38aa8f3048
 geoipupdate/geoipupdate-2.5.0.tar.gz:
   size: 371882
-  object_id: a00f4ce6-ea45-4301-7569-c92b4042ec93
+  object_id: 283a984f-6db5-4ebd-6da7-9ed25fb336a1
   sha: 79c5c9ba0f7a89d921b640f140ce0f5dc95bc8eb
 graylog/graylog-2.2.2.tgz:
   size: 99956086
-  object_id: dee996d9-8ed8-453e-85cb-27ea5362ff0c
+  object_id: 20c46dc4-fc21-4ef9-4102-3c6e0494286e
   sha: 571289739173b9644a43e94d526912c1d0e1e4a9
 graylog/graylog-2.2.3.tgz:
   size: 99971278
-  object_id: 7a04199d-05d3-464d-5023-211c0cbd041d
+  object_id: 65aa46b8-8f87-464c-6fc2-86bfaf5d518b
   sha: 0d3bdd24104c87f4e3739959c0c3d009cf090242
 graylog/graylog-plugin-slack-2.4.0.jar:
   size: 26462
-  object_id: 39aee536-2ab8-4716-72ad-69b7c82030c3
+  object_id: fe1d1ff3-1405-4a16-6edb-fc1acd53b83d
   sha: 10529654afe3b8a93a991ca487dbfdbd01a37e81
 mongodb/mongodb-linux-x86_64-3.4.2.tgz:
   size: 86473759
-  object_id: a68edeb2-27a4-4532-96e1-09b00145f9c7
+  object_id: c85f6dc8-5f64-4b93-73c7-962040d43f94
   sha: 540ed237905235ac4ca40bbfa0a78324f5d1db4f
 openjdk/openjdk-1.8.0_111.tar.gz:
   size: 77747700
-  object_id: d3e89d5f-e28e-41f8-8633-988803c304c0
+  object_id: 2e66da0c-201c-4b86-433c-733c79d87d56
   sha: d5ca703f6115cb0564651c2ab7f962030f70d594
