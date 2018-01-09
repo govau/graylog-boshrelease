@@ -15,7 +15,7 @@ resources:
 - name: git
   type: git
   source:
-    uri: git@github.com:AusDTO/graylog-boshrelease.git
+    uri: git@github.com:govau/graylog-boshrelease.git
     private_key: {{git_private_key}}
     branch: master
     ignore_paths:
@@ -24,13 +24,13 @@ resources:
 - name: git-push
   type: git
   source:
-    uri: git@github.com:AusDTO/graylog-boshrelease.git
+    uri: git@github.com:govau/graylog-boshrelease.git
     private_key: {{git_private_key}}
     branch: master
 - name: github-release
   type: github-release
   source:
-    owner: AusDTO
+    owner: govau
     repository: graylog-boshrelease
     access_token: {{git_personal_access_token}}
 - name: version
@@ -39,6 +39,7 @@ resources:
     driver: git
     uri: git@github.com:govau/boshreleases.git
     branch: master
+    initial_version: 0.1.0
     file: graylog.version
     private_key: {{git_boshreleases_private_key}}
 - name: slack
