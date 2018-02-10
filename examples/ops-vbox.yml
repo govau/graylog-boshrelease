@@ -1,0 +1,43 @@
+- type: replace
+  path: /instance_groups/name=mongodb/networks
+  value:
+    - name: mongodb_a
+      static_ips:
+      - 10.244.3.20
+
+- type: replace
+  path: /instance_groups/name=elasticsearch-master/networks
+  value:
+    - name: elasticsearch_a
+      static_ips:
+      - 10.244.2.21
+
+- type: replace
+  path: /instance_groups/name=elasticsearch-data/networks
+  value:
+    - name: elasticsearch_a
+      static_ips:
+      - 10.244.2.22
+
+- type: replace
+  path: /instance_groups/name=graylog/networks
+  value:
+    - name: graylog_a
+      static_ips:
+      - 10.244.1.25
+
+- type: replace
+  path: /instance_groups/name=graylog/instances
+  value: 1
+
+- type: replace
+  path: /properties/graylog
+  value:
+    elasticsearch_discovery_zen_ping_unicast_hosts: 10.244.2.21:9300
+    mongodb_uri: mongodb://10.244.3.20/graylog
+    root_email: ben.jackson@oakton.com.au
+
+- type: replace
+  path: /properties/elasticsearch/master_hosts
+  value:
+    - 10.244.2.21
